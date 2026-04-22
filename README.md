@@ -1,53 +1,54 @@
 # CLI Agent – Prompt Engineering Project
 
-## 📌 Project Description
-This project implements an AI agent that converts natural language instructions into Windows CLI commands.
+An AI agent that converts natural language instructions into valid Windows CLI commands.
 
-The focus of the project is on Prompt Engineering – iteratively improving the prompt to achieve more accurate, safe, and consistent outputs.
+This project focuses on **iterative prompt engineering**—refining the prompt to produce consistent, safe, and minimal outputs.
 
 ---
 
 ## ⚙️ Features
-- Converts natural language to CLI commands
-- Returns a single command only
-- Blocks dangerous operations (e.g., format, delete all files)
-- Uses simple built-in Windows commands
-- Gradio interface for interaction
+- Natural language → CLI command
+- **Single-line output only** (no explanations)
+- Built-in Windows commands only
+- Blocks clearly destructive operations (`BLOCKED`)
+- Simple Gradio interface
 
 ---
 
-## 🔄 Iterative Improvement Process
-In the initial iterations, the model tended to:
-- Use non-Windows commands (e.g., curl, nslookup)
-- Over-optimize commands
-- Return inconsistent formats
+## 🔄 Iterative Improvement
 
-After refining the prompt:
-- Output format became consistent (single-line command)
-- Simpler commands were generated
-- Safety rules were introduced (BLOCKED)
+**Iteration 1**
+- Non-Windows tools (`curl`, `nslookup`)
+- Overly complex outputs
+- Inconsistent format
 
-Final iteration achieved:
-- Balanced safety and usability
-- Accurate command generation
-- Stable and predictable behavior
+**Iteration 2**
+- Enforced single-line output
+- Cleaner, simpler commands
+- Introduced safety rules (over-blocking)
+
+**Iteration 3 (Final)**
+- Balanced safety vs usability
+- Allowed targeted operations (e.g. `del *.tmp`)
+- Blocked only destructive actions
+- Stable, predictable behavior
 
 ---
 
-## 📊 Test Cases & Evaluation
+## 📊 Evaluation
 
-Google Sheet (includes all iterations and evaluations):
+Google Sheet (iterations, tests, scoring, and insights):
 👉 https://docs.google.com/spreadsheets/d/18XfWzWiLNXbRgSXOCbGc8ad_6iz6S__6FHfk_nyzp8s/edit?usp=sharing
 
-The Google Sheet includes:
-- Iteration 1 (initial behavior)
-- Iteration 2 (improved formatting)
-- Iteration 3 (final optimized version)
-- Prompt versions and insights
+Includes:
+- Iteration comparisons
+- Test cases and scoring
+- Prompt versions
+- Failure analysis
 
 ---
 
-## 🚀 How to Run
+## 🚀 Run
 
 ```bash
 uv run main.py
